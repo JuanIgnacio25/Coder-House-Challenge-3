@@ -1,0 +1,20 @@
+extends layout.pug
+
+block contenido 
+    h1 Productos
+    if productos[0]
+        table
+            thead
+                th Nombre
+                th Precio 
+                th Thumbnail
+            tbody
+                each prod in productos
+                    tr
+                        td= prod.name
+                        td= '$' + prod.price
+                        td 
+                            img(style="width: 50px; height:50px" src=prod.thumbnail)
+    else 
+        h2 No hay productos agregados                        
+    a(href="http://localhost:8080/") Cargar productos
